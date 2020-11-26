@@ -1,4 +1,4 @@
-# React Context Hook + Redux Saga demo
+# React context hook + redux saga demo
 
 **[LIVE DEMO](https://nirougi.github.io/react-saga-hook-example/)**
 
