@@ -23,4 +23,12 @@ Here we combine three different hooks:
 2. `useReducer` for the synchronous logic.
 3. `useReactSaga` for the asynchronous logic.
 
-The synchronous logic is handled by the reducers and the side effects (asynchronous logic like an API call) are handled by actions.
+### Reducers folder
+
+Here we have a reducer for each state parameter, responsible for the synchronous logic.
+All of them are combined in the `mainReducer.ts`.
+
+### Actions folder
+
+Here we have a generator function for each action, which uses Saga's effects to handle the different steps.
+They are combined in the `mainSaga.ts`.
