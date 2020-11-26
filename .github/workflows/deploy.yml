@@ -19,7 +19,7 @@ jobs:
 
       - name: Build
         env:
-          PUBLIC_URL: /react-saga-hook-example/static/
+          PUBLIC_URL: /react-saga-hook-example/
         run: npm run build
 
       - name: Deploy
