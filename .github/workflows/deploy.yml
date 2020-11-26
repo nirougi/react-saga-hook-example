@@ -19,6 +19,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        with:
+          PUBLIC_URL: /react-saga-hook-example/static/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
