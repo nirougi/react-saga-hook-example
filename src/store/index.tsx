@@ -9,20 +9,20 @@ type Actions = ReducerActions | SagaActions;
 
 interface Store {
   state: GlobalState,
-  put: (actions: Actions) => void
+  dispatch: (actions: Actions) => void
 }
 
 export const store = React.createContext({
     state: initialState,
-    put: (actions: Actions) => {}
+    dispatch: (actions: Actions) => {}
 });
 
 export const StateProvider: React.FunctionComponent = ({ children }) => {
     const { Provider } = store;
-    const [state, dispatch] = React.useReducer(mainReducer, initialState);
-    const put: (action: Actions) => void = useReactSaga({ state, dispatch, saga: mainSaga });
+    const [state, reducerDispatch] = React.useReducer(mainReducer, initialState);
+    const dispatch: (action: Actions) => void = useReactSaga({ state, dispatch: reducerDispatch, saga: mainSaga });
     
-    return <Provider value={{ state, put }}>{children}</Provider>;
+    return <Provider value={{ state, dispatch }}>{children}</Provider>;
 };
 
 export const useGlobalStore = () => React.useContext(store) as Store;

@@ -3,14 +3,14 @@ import { useGlobalStore } from "../store";
 import { CompleteButton } from "./CompleteButton";
 import { Button, Progress, Spin, Timeline } from "antd";
 import { PlusOutlined, MinusOutlined, CaretRightOutlined } from "@ant-design/icons"
-import "../css/App.css";
+import "../styles/App.css";
 
 const App: React.FunctionComponent = () => {
-  const { state, put } = useGlobalStore();
+  const { state, dispatch } = useGlobalStore();
 
   React.useEffect(() => {
-    put({ type: "APP_START" });
-  }, [put]);
+    dispatch({ type: "APP_START" });
+  }, [dispatch]);
   
   return (
     <div className="container">
@@ -23,12 +23,12 @@ const App: React.FunctionComponent = () => {
           <div className="buttons-container">
               <CompleteButton />
               <br />
-              <Button onClick={() => put({ type: "COUNT_DECREASE" })} icon={<MinusOutlined />}>Decrease</Button>
-              <Button onClick={() => put({ type: "COUNT_INCREMENT" })} icon={<PlusOutlined />}>Increment</Button>
+              <Button onClick={() => dispatch({ type: "COUNT_DECREASE" })} icon={<MinusOutlined />}>Decrease</Button>
+              <Button onClick={() => dispatch({ type: "COUNT_INCREMENT" })} icon={<PlusOutlined />}>Increment</Button>
               <br />
-              <Button onClick={() => put({ type: "APP_START" })}>Restart</Button>
-              <Button onClick={() => put({ type: "COUNT_RESET" })}>Set to 0</Button>
-              <Button onClick={() => put({ type: "COUNT_SET", payload: 50 })}>Set to 50</Button>
+              <Button onClick={() => dispatch({ type: "APP_START" })}>Reset</Button>
+              <Button onClick={() => dispatch({ type: "COUNT_RESET" })}>Set to 0</Button>
+              <Button onClick={() => dispatch({ type: "COUNT_SET", payload: 50 })}>Set to 50</Button>
           </div>
         </main>
 

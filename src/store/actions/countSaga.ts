@@ -1,5 +1,5 @@
 import { select, put } from "redux-saga/effects";
-import { getRadnomFromApi } from "../api";
+import { getRadnomFromApi } from "../../api";
 import { Actions, GlobalState, SimpleAction } from "../reducers/mainReducer";
 
 export type GetInitialCountAction = SimpleAction<"APP_START">;
